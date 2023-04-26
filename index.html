@@ -59,7 +59,7 @@
 <script>
   self._typeface_js = { faces: THREE.FontUtils.faces, loadFace: THREE.FontUtils.loadFace };
 </script>
-<script src="fonts/Monaco_Regular.js"></script> <!--this is where you can change the 'Monaco.ttf' font-->
+<script src="./fonts/Monaco_Regular.js"></script> <!--this is where you can change the 'Monaco.ttf' font-->
 
 
 <script>
@@ -90,7 +90,7 @@
 
       const div = document.getElementById('forgeViewer');
 
-      const config = { extensions: ["TextGeomExtension", "GridExtension"] };
+      const config = { extensions: ["TextGeomExtension"] };
 
       viewer = new Autodesk.Viewing.Private.GuiViewer3D(div, config);
       viewer.start();
@@ -102,7 +102,6 @@
     });
 
     function onLoadFinished() {
-      textExt = viewer.getExtension("TextGeomExtension");
     }
   }
 
