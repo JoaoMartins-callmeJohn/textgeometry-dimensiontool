@@ -42,28 +42,7 @@
     <div class="container">
       <a href="http://developer.autodesk.com" class="navbar-brand" href="#"><img alt="Autodesk Forge" src="http://developer.static.autodesk.com/images/logo_forge-2-line.png" height="20"></a>
       <div class="collapse navbar-collapse">
-        <form class="navbar-form navbar-left" >
-          <div class="form-group">
-            <input type="text" class="input" id="txtInput" placeholder="Type something" value="Type something" oninput="updateUI(value)">
-          </div>
-          <div class="form-group">
-            <label for="fontSize" class="form-control">Scale</label>
-          </div>
-          <div class="form-group">
-            <input type="range" min="0.1" max="2" value="1" step="0.1" id="fontSize" aria-valuemin="1" aria-valuemax="10" aria-valuenow="5" class="input" oninput="updateUI()">
-          </div>
-          <div class="form-group">
-            <label for="color" class="form-control">Color</label>
-            <input type="color" oninput="updateUI(event)" class="input" id="color" name="head" value="#e66465">
-          </div>
-          <div class="form-group">
-            <input type="button" onClick="textExt.lookAtMe()" class="form-control" value="Look at me" ></button>
-          </div>
-          <div class="form-group">
-            <input type="button" onClick="textExt.toggleWireframe()" class="form-control" value="Toggle Wireframe" ></button>
-          </div>
-        </form>
-        <div class="navbar-itemr navbar-form"><a class="form-control" href="https://github.com/JoaoMartins-Forge/textgeometry-sample">Github</a></div>
+        <div class="navbar-itemr navbar-form"><a class="form-control" href="https://github.com/JoaoMartins-callmejohn/textgeometry-dimensiontool">Github</a></div>
       </div>
     </div>
   </nav>
@@ -73,9 +52,6 @@
       <div id="forgeViewer"></div>
     </div>
   </div>
-  <form id="uploadFile" method='post' enctype="multipart/form-data">
-    <input id="hiddenUploadField" type="file" name="theFile" style="visibility:hidden" />
-  </form>
 </body>
 
 <script src="grid.ext.js"></script>
@@ -91,13 +67,6 @@
   let viewer = null;
   let textExt = null;
   var _access_token = null;
-  
-  function updateUI() {
-    textExt.update(
-      document.getElementById("txtInput").value, 
-      document.getElementById("fontSize").value,
-      document.getElementById("color").value)
-  }
 
   async function getToken(){
     await fetch('https://lowlblo75l.execute-api.us-east-1.amazonaws.com/default/GetTokenWithAHub').then(response => {
@@ -134,7 +103,6 @@
 
     function onLoadFinished() {
       textExt = viewer.getExtension("TextGeomExtension");
-      updateUI();
     }
   }
 
